@@ -1,0 +1,27 @@
+@mixin flexColumnGap($gapValue) {
+	display: flex;
+	flex-direction: column;
+	gap: $gapValue;
+	width: 100%;
+}
+
+.dashboard {
+	display: flex;
+	flex-direction: row;
+	gap: 14px;
+
+	.column1 {
+		@include flexColumnGap(14px);
+	}
+
+	.column2 {
+		@include flexColumnGap(14px);
+	}
+
+	.intervalBetweenWins {
+
+		> div {
+			@include flexColumnGap(7px);
+		}
+	}
+}

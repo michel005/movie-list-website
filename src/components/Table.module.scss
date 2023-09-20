@@ -1,0 +1,145 @@
+.table {
+	background-color: #fff;
+	border: 1px solid #ccc;
+	display: flex;
+	flex-direction: column;
+
+	&::-webkit-scrollbar {
+		width: 0;
+	}
+
+	table {
+		border-collapse: collapse;
+		margin-block-end: auto;
+		width: 100%;
+
+		th, td {
+			border-right: 1px solid #ccc;
+			font-size: 14px;
+			padding: 14px 21px;
+			transition: all 0.25s;
+
+			&:last-child {
+				border-right: none;
+			}
+		}
+
+		thead,
+		tfoot {
+			background-color: #eee;
+
+			tr {
+				border-bottom: 1px solid #ccc;
+
+				th {
+					color: #333;
+
+					a {
+						color: #fff;
+					}
+
+					&[data-alignment='left'] {
+						text-align: left;
+
+						div {
+							justify-content: flex-start;
+						}
+					}
+
+					&[data-alignment='center'] {
+						text-align: center;
+
+						div {
+							justify-content: center;
+						}
+					}
+
+					&[data-alignment='right'] {
+						text-align: right;
+
+						div {
+							justify-content: flex-end;
+						}
+					}
+				}
+			}
+		}
+
+		tfoot {
+			background-color: #fff;
+
+			tr {
+				th {
+					color: #333;
+				}
+			}
+		}
+
+		tbody {
+			position: relative;
+
+			tr {
+				transition: all 0.25s;
+				user-select: none;
+
+				td {
+					color: #333;
+					text-align: left;
+
+					&[data-alignment='left'] {
+						text-align: left;
+					}
+
+					&[data-alignment='center'] {
+						text-align: center;
+					}
+
+					&[data-alignment='right'] {
+						text-align: right;
+					}
+				}
+
+				&:hover {
+					background-color: #f4f4f4;
+
+					&:nth-child(even) {
+						background-color: #f4f4f4;
+					}
+				}
+
+				&:nth-child(even) {
+					background-color: #f8f8f8;
+				}
+
+				&[data-not-found='true'] {
+					&:hover {
+						background-color: transparent;
+					}
+				}
+			}
+		}
+	}
+
+	.filter {
+		margin-block-start: 14px;
+	}
+
+	.pagination {
+		align-self: stretch;
+		background-color: #fff;
+		border-block-start: 1px solid #ccc;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		padding-block: 14px;
+		width: 100%;
+		z-index: 10;
+
+		> span {
+			align-self: center;
+			color: #888;
+			flex-grow: 1;
+			margin-inline-start: 14px;
+		}
+	}
+}

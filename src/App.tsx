@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import style from './App.module.scss'
+import { NavLink, Route, Routes } from 'react-router-dom'
+import { DashboardPage } from './pages/DashboardPage'
+import { ListPage } from './pages/ListPage'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export const App = () => {
+	return (
+		<div className={style.app}>
+			<header className={style.header}>
+				<NavLink to="/">Frontend Angular Test</NavLink>
+			</header>
+			<div className={style.content}>
+				<section className={style.sidebar}>
+					<NavLink to="/" className={({ isActive }) => (isActive ? style.active : '')}>
+						Dashboard
+					</NavLink>
+					<NavLink to="/list" className={({ isActive }) => (isActive ? style.active : '')}>
+						List
+					</NavLink>
+				</section>
+				<main className={style.main}>
+					<Routes>
+						<Route path="/" element={<DashboardPage />} />
+						<Route path="/list" element={<ListPage />} />
+					</Routes>
+				</main>
+			</div>
+		</div>
+	)
 }
-
-export default App;
